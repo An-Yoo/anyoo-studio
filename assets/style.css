@@ -62,7 +62,7 @@ a:hover { text-decoration-thickness: 2px; }
 .narrow { max-width: 720px; }
 
 .mono {
-  font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  font-family: "IBM Plex Mono", "IBM Plex Sans KR", "Malgun Gothic", ui-monospace, monospace;
   font-size: 13px;
   letter-spacing: 0.02em;
 }
@@ -231,18 +231,20 @@ details p { color: var(--muted); margin: 10px 0 0; }
 .note p { margin: 0; }
 
 .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; }
-.shot {
+.shot { margin: 0; }
+.shot img {
+  display: block;
+  width: 100%;
   aspect-ratio: 16 / 9;
-  border: 1px dashed var(--line);
+  object-fit: cover;
+  border: 1px solid var(--line);
   border-radius: 6px;
-  display: grid;
-  place-items: center;
-  color: var(--muted);
-  text-align: center;
-  padding: 8px;
   background: var(--surface);
 }
-.shot img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; border-radius: 6px; }
+.shot figcaption { color: var(--muted); margin-top: 6px; }
+.shots.two { grid-template-columns: repeat(2, 1fr); }
+.card-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card-art.has-img { background: #1d1b26; }
 
 .incident { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 16px 18px; margin: 14px 0; }
 .incident h3 { margin: 0 0 6px; }
@@ -269,7 +271,7 @@ details p { color: var(--muted); margin: 10px 0 0; }
   .site-nav a.hide-sm { display: none; }
   .brand small { display: none; }
   .hero { padding: 44px 0 28px; }
-  .cards, .steps, .shots { grid-template-columns: 1fr; }
+  .cards, .steps, .shots, .shots.two { grid-template-columns: 1fr; }
   section { padding: 28px 0; }
 }
 
