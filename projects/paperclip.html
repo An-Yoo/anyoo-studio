@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>에이전트 팀 운영기</title>
+  <meta name="description" content="로컬 관제 서버 Paperclip으로 Claude와 Codex 에이전트에게 티켓을 나눠 맡긴 운영 기록.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+  <script src="../assets/theme.js"></script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap">
+      <a class="brand" href="../">AnYoo <small class="mono">studio</small></a>
+      <nav class="site-nav">
+        <a href="../#projects">프로젝트</a>
+        <a class="hide-sm" href="../#faq">질문</a>
+        <button class="theme-btn mono" type="button">어둡게</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap narrow case">
+    <div class="case-head">
+      <a class="back mono" href="../#projects">← 프로젝트</a>
+      <p class="mono" style="color:var(--accent);margin:16px 0 0">CASE 03 · 운영기</p>
+      <h1>에이전트 팀 운영기</h1>
+      <p class="lede">로컬에서 도는 다중 에이전트 관제 서버 Paperclip에 Claude와 Codex 에이전트를 묶고, 게임 작업을 티켓으로 나눠 맡겨 본 기록입니다.</p>
+      <dl class="facts mono">
+        <div><dt>시작</dt><dd>2026년 10월</dd></div>
+        <div><dt>에이전트</dt><dd>4명</dd></div>
+        <div><dt>일 단위</dt><dd>티켓 1장 = 커밋 1개</dd></div>
+        <div><dt>대상</dt><dd>Story of Velarkh</dd></div>
+      </dl>
+    </div>
+
+    <h2>왜 시작했나</h2>
+    <p>처음에는 대화창 하나에서 조율 모델이 구현 모델에게 직접 일을 시켰습니다. 일이 늘자 누가 무엇을 맡았는지, 어디서 멈췄는지를 사람이 머릿속으로 들고 있어야 했습니다. 일을 티켓으로 꺼내 놓고 에이전트마다 역할을 고정하면 처리량이 늘지 시험해 보기로 했습니다.</p>
+
+    <h2>역할 분담</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>역할</th><th>모델</th><th>맡는 일</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Coordinator</strong></td><td class="mono">Claude</td><td>일을 티켓으로 쪼개 배정하고, 설계를 판단하고, 결과를 화면 캡처로 확인해 완료 처리</td></tr>
+          <tr><td><strong>Implementer</strong></td><td class="mono">Codex</td><td>게임 코드, Unity 빌드, 자동 검사, 커밋</td></tr>
+          <tr><td><strong>Reviewer</strong></td><td class="mono">Codex</td><td>구현 결과를 먼저 검토하고, 통과하면 Coordinator에게 넘김</td></tr>
+          <tr><td><strong>Writer</strong></td><td class="mono">Claude</td><td>Unity 없이 하는 일 — 문안, 데이터 표, 설계서, 티켓 초안</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>흐름은 <span class="mono">배정 → 구현·커밋 → 1차 검토 → 캡처 확인·완료</span>입니다. 처음에는 Coordinator와 Implementer 둘이었는데, 한쪽 구독 사용량만 빠르게 닳는 것을 보고 Reviewer와 Writer를 더해 일을 고르게 나눴습니다.</p>
+
+    <h2>순찰</h2>
+    <p>Reviewer와 Writer는 배정을 받아야만 깨어납니다. 그래서 Coordinator에게만 10분마다 깨어나는 순찰을 걸었습니다. 깨어날 때마다 이런 것을 찾습니다.</p>
+    <ul>
+      <li>담당자가 정해졌는데 실행이 한 번도 시작되지 않은 티켓</li>
+      <li>담당자가 집을 수 없는 상태로 넘겨져 멈춘 티켓</li>
+      <li>사람에게 물어 놓고 답을 기다리는 질문 카드</li>
+    </ul>
+
+    <h2>겪은 문제</h2>
+    <p>운영 첫 주에 가장 많이 배운 것은 「일이 실패한 것」과 「인계가 실패한 것」이 다르다는 점이었습니다. 멈춘 티켓 대부분은 작업이 아니라 넘김에서 멈췄습니다.</p>
+
+    <div class="incident">
+      <h3>검토 대기 상태로 넘기면 아무도 깨어나지 않는다</h3>
+      <p><span class="label mono">증상</span> 구현이 끝나 Reviewer에게 「검토 중」 상태로 넘겼는데 Reviewer가 한 번도 실행되지 않았다.</p>
+      <p><span class="label mono">원인</span> 그 상태는 담당자가 작업으로 집어 들 수 없는 상태였다.</p>
+      <p><span class="label mono">고침</span> 에이전트 사이 인계는 「할 일」 상태로 하고, 「검토 중」은 사람에게 넘길 때만 쓰도록 지시서를 바꿨다.</p>
+    </div>
+
+    <div class="incident">
+      <h3>티켓에 묶이지 않은 타이머 실행은 아무것도 쓸 수 없다</h3>
+      <p><span class="label mono">증상</span> 서버를 다시 켠 뒤 첫 순찰에서 모든 상태 변경과 댓글이 403·422로 거부됐다. 오류 문구가 시키는 대로 실행 ID 헤더를 붙여도 같았다.</p>
+      <p><span class="label mono">원인</span> 헤더가 빠진 것이 아니라, 특정 티켓에서 시작되지 않은 실행은 다른 티켓에 쓰는 주체로 인정되지 않았다.</p>
+      <p><span class="label mono">고침</span> 순찰은 읽기와 보고만 하고, 실제 변경은 티켓에서 깨어난 실행이 하도록 나눴다.</p>
+    </div>
+
+    <div class="incident">
+      <h3>넘길 때마다 풀 수 없는 잠금이 생긴다</h3>
+      <p><span class="label mono">증상</span> 담당자를 바꾸는 순간 대기 중이던 실행이 시작도 못 하고 취소되며 티켓에 「복구 필요」 잠금이 걸렸다.</p>
+      <p><span class="label mono">고침</span> 원인 실행이 정말로 시작 전에 취소된 경우만 찾아 잠금을 푸는 작은 도우미를 10분마다 돌렸다. 무언가를 하다 끊긴 경우는 사람이 남은 변경을 보고 직접 푼다.</p>
+    </div>
+
+    <div class="incident">
+      <h3>인계 댓글이 자꾸 빠진다</h3>
+      <p><span class="label mono">증상</span> 일을 마친 에이전트가 담당자만 바꾸고 무엇을 했는지 남기지 않아, 다음 에이전트가 처음부터 다시 파악했다.</p>
+      <p><span class="label mono">고침</span> 같은 실수가 여섯 번째 났을 때부터 인계 댓글이 없으면 되돌린다는 규칙을 실제로 적용했다.</p>
+    </div>
+
+    <div class="incident">
+      <h3>한글이 셸에서 사라진다</h3>
+      <p><span class="label mono">증상</span> 명령줄 인자로 넘긴 한글 댓글이 깨지거나 일부 구간이 통째로 사라졌다.</p>
+      <p><span class="label mono">고침</span> 본문은 항상 UTF-8 파일로 만들어 파일째 보낸다.</p>
+    </div>
+
+    <h2>지금의 결론</h2>
+    <ul>
+      <li>역할을 고정하니 「누가 하다 말았나」가 티켓에 남아 사람이 덜 기억해도 됐다.</li>
+      <li>대신 깨어남과 인계는 믿지 말고 확인해야 한다. 순찰이 그 확인을 맡는다.</li>
+      <li>겪은 문제는 모두 운영 문서에 날짜와 함께 적고, 앞의 기록이 틀렸으면 지우지 않고 정정을 덧붙인다.</li>
+    </ul>
+
+    <div class="next-case">
+      <a class="back" href="velarkh.html">← Story of Velarkh</a>
+      <a class="back" href="../#projects">전체 프로젝트 →</a>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <span>© 2026 AnYoo</span>
+      <span class="mono">made by one person + agents</span>
+    </div>
+  </footer>
+</body>
+</html>
