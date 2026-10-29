@@ -3,86 +3,64 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Story of Velarkh 케이스</title>
-  <meta name="description" content="2D 픽셀아트 턴제 전술 RPG Story of Velarkh를 에이전트 팀과 만든 과정.">
+  <title>Story of Velarkh</title>
+  <meta name="description" content="작은 마을 헤르덴에서 시작하는 도트 턴제 전술 RPG, Story of Velarkh를 만드는 과정.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/style.css">
   <script src="../assets/theme.js"></script>
 </head>
 <body>
   <header class="site-head">
     <div class="wrap">
-      <a class="brand" href="../">AnYoo <small class="mono">studio</small></a>
+      <a class="brand" href="../">AnYoo</a>
       <nav class="site-nav">
-        <a href="../#projects">프로젝트</a>
-        <a class="hide-sm" href="../#faq">질문</a>
-        <button class="theme-btn mono" type="button">어둡게</button>
+        <a href="https://github.com/An-Yoo">GitHub</a>
+        <button class="theme-btn" type="button">어둡게</button>
       </nav>
     </div>
   </header>
 
   <main class="wrap narrow case">
     <div class="case-head">
-      <a class="back mono" href="../#projects">← 프로젝트</a>
-      <p class="mono" style="color:var(--accent);margin:16px 0 0">CASE 01 · 게임</p>
+      <a class="back" href="../">← 처음으로</a>
       <h1>Story of Velarkh</h1>
-      <p class="lede">한 캐릭터가 자기에게만 속한 하나의 세계를 이어서 탐험하는 2D 픽셀아트 턴제 전술 RPG. 지금은 작은 마을 헤르덴에서 시작하는 1장을 다듬고 있습니다.</p>
-      <dl class="facts mono">
-        <div><dt>장르</dt><dd>턴제 전술 RPG</dd></div>
-        <div><dt>엔진</dt><dd>Unity 6 · URP 2D</dd></div>
-        <div><dt>화면</dt><dd>32 PPU · 640×360</dd></div>
-        <div><dt>단계</dt><dd>1장 사람 플레이 확인</dd></div>
-      </dl>
+      <p class="lede">작은 마을 헤르덴에서 시작하는 도트 턴제 전술 RPG예요.</p>
+      <p class="meta">Unity 6 · 2D 픽셀아트 · 1장 다듬는 중</p>
     </div>
 
+    <figure class="hero-shot">
+      <img src="../assets/img/velarkh-title.jpg" alt="Story of Velarkh 타이틀 화면. 해 질 녘 언덕 아래 마을과 풍차">
+    </figure>
     <div class="shots">
-      <figure class="shot"><img src="../assets/img/velarkh-title.jpg" alt="Story of Velarkh 타이틀 화면. 해 질 녘 언덕 아래 마을과 풍차" loading="lazy"><figcaption class="mono">타이틀</figcaption></figure>
-      <figure class="shot"><img src="../assets/img/velarkh-village.jpg" alt="헤르덴 마을. 목조 주택, 주민, 밭과 울타리" loading="lazy"><figcaption class="mono">헤르덴 마을</figcaption></figure>
-      <figure class="shot"><img src="../assets/img/velarkh-combat.jpg" alt="길 위에서 늑대와 마주한 격자 전투. 이동 가능한 칸이 색으로 표시됨" loading="lazy"><figcaption class="mono">격자 전투</figcaption></figure>
+      <img src="../assets/img/velarkh-village.jpg" alt="헤르덴 마을. 목조 주택, 주민, 밭과 울타리" loading="lazy">
+      <img src="../assets/img/velarkh-combat.jpg" alt="길 위에서 늑대와 마주한 격자 전투. 움직일 수 있는 칸이 색으로 표시됨" loading="lazy">
     </div>
-    <p class="mono" style="color:var(--muted)">개발 중 화면입니다. 출시 때 달라질 수 있습니다.</p>
+    <p class="caption">개발 중 화면이라 나중에 달라질 수 있어요.</p>
 
-    <h2>무엇을 만드는가</h2>
-    <p>전투는 격자 위에서 벌어지고, 위치·장비·부상·상태 이상·자원 관리가 중요합니다. 전술은 깊게 하되, 불합리하게 진행을 잃는 가혹함은 피하는 것이 원칙입니다.</p>
-    <p>1장은 마을 헤르덴과 그 주변 세 지역(농가, 도적이 지키는 길목, 숲 가장자리)으로 이루어지고, 결말은 두 갈래입니다. 마을 사람의 의뢰를 받고, 지역을 오가며 싸우고, 장비를 사고 고치고 만들 수 있습니다.</p>
+    <h2>어떤 게임인가요</h2>
+    <p>캐릭터 하나가 자기만의 세계 하나를 계속 이어서 탐험하는 게임이에요. 싸움은 격자 위에서 하고, 어디에 서는지, 뭘 들고 있는지, 얼마나 다쳤는지가 중요해요. 대신 한 번 실수했다고 몇 시간을 날리는 식의 가혹함은 피하고 싶었어요.</p>
+    <p>1장은 마을 헤르덴과 그 주변 세 곳(농가, 도적이 지키는 길목, 숲 가장자리)이 무대고, 결말은 두 갈래예요. 마을 사람들 부탁을 들어주고, 지역을 오가며 싸우고, 장비를 사고 고치고 만들 수 있어요.</p>
 
-    <h2>정하고 나서 만든다</h2>
-    <p>설계서에는 사람이 확정한 결정만 날짜와 함께 덧붙입니다. 에이전트가 설계와 다른 판단이 필요하다고 느끼면 구현을 멈추고 묻게 했습니다. 몇 가지 원칙은 처음부터 고정했습니다.</p>
-    <ul>
-      <li><strong>참고는 구조까지만.</strong> 좋아하는 게임들에서 시스템과 탐험의 감각은 참고하되, 수치·아트·문구는 옮기지 않습니다.</li>
-      <li><strong>보는 맛은 2D로.</strong> 상시 3D 배경 대신 스프라이트 애니메이션, 2D 빛과 그림자, 날씨, 절제된 효과로 화면을 채웁니다.</li>
-      <li><strong>저장은 건드리기 전에 시험부터.</strong> 저장 형식, 보상이 두 번 들어오지 않는 규칙, 캐릭터와 세계의 정체성은 계약 테스트를 먼저 쓰지 않으면 바꾸지 않습니다.</li>
-    </ul>
+    <h2>어떻게 만들고 있나요</h2>
+    <p>설계는 제가 정해서 문서에 날짜와 함께 적어 두고, 구현은 Codex 에이전트에게 맡겨요. 결과는 Claude 에이전트가 게임을 직접 띄워 화면을 찍어 보고 확인해요. 저장 방식이나 보상처럼 한 번 잘못되면 되돌리기 어려운 부분은 테스트를 먼저 써 놓지 않으면 아무도 못 건드리게 해 뒀어요.</p>
+    <p>중간에 그림 방향을 한 번 통째로 바꿨어요. 처음 붙인 그림들은 크기도 해상도도 제각각이라 화면이 어수선했거든요. 지금은 640×360을 정수배로만 키우는 도트 화면으로 맞췄어요.</p>
+    <p>좀 민망한 일도 있었어요. 화면 확인용 게임 창을 모니터 밖에 띄우면 제 작업을 방해하지 않는다고 오래 믿었는데, 실제로 재 보니 실행할 때마다 20초쯤 포커스를 가져가고 있었어요. 규칙 문서를 고치고, 캡처를 여러 번 돌릴 땐 미리 말해 주기로 했어요.</p>
 
-    <h2>어떻게 나눠 만들었나</h2>
-    <p>조율 에이전트(Claude)가 일을 쪼개 지시서를 쓰고, 구현 에이전트(Codex)가 코드·빌드·자동 검사를 맡았습니다. 화면 확인은 조율자가 게임 창을 직접 캡처해서 합니다. 게임 실행 옵션으로 특정 지역·전투·메뉴로 곧장 들어가 캡처하고, 항상 별도 저장 폴더를 써서 사람의 저장 파일은 건드리지 않습니다.</p>
-    <p>Unity 편집기는 한 번에 하나만 돌릴 수 있어서, 같은 폴더를 쓰는 에이전트들이 빌드와 테스트를 번갈아 잡도록 규칙을 정했습니다. 같은 파일을 두 에이전트가 동시에 고치지 않는 것도 같은 이유입니다.</p>
-
-    <h3>화풍을 한 번 갈아엎었다</h3>
-    <p>처음 연결한 아트는 해상도와 크기가 제각각이었습니다. 정수 배율로만 확대하는 640×360 도트 월드로 바꾸고, 원래 아트는 되돌아갈 수 있게 남겨 두었습니다. 새 아트 후보는 사람이 승인하기 전에는 게임에 넣지 않습니다.</p>
-
-    <h3>창이 포커스를 뺏는다는 사실을 늦게 알았다</h3>
-    <p>캡처용 게임 창을 화면 밖에 띄우면 사용자의 작업을 방해하지 않는다고 오래 믿었습니다. 실제로 재 보니 실행 직후 약 20초 동안 전경을 가져갔습니다. 규칙 문서를 고치고, 캡처를 연속으로 돌릴 때는 미리 알리기로 했습니다.</p>
-
-    <h2>지금 어디까지 왔나</h2>
-    <ul>
-      <li>무음 Windows 빌드와 PlayMode 자동 검사 313개를 모두 통과했습니다.</li>
-      <li>두 결말 모두 자동으로 처음부터 끝까지 완주했고, 중간에 강제로 끊었다가 다시 불러오는 경우도 확인했습니다.</li>
-      <li>남은 것은 사람이 직접 두 결말을 한 번씩 플레이해 보는 일입니다. 실제 화면·소리·사람의 완주는 자동 검사로 대신하지 않고 아직 안 한 일로 적어 둡니다.</li>
-    </ul>
+    <h2>지금은 어디까지 왔나요</h2>
+    <p>자동 테스트 313개가 다 통과하고, 두 결말 모두 자동으로 처음부터 끝까지 완주돼요. 중간에 강제로 꺼도 다시 불러와지는 것까지 확인했어요. 남은 건 제가 직접 두 결말을 한 번씩 끝까지 해 보는 일이에요. 소리나 손맛 같은 건 테스트가 대신해 줄 수 없으니까요.</p>
 
     <div class="next-case">
-      <a class="back" href="../#projects">← 전체 프로젝트</a>
-      <a class="back" href="paperclip.html">에이전트 팀 운영기 →</a>
+      <a class="back" href="../">← 처음으로</a>
+      <a class="back" href="desk-dungeon.html">Deskgeon →</a>
     </div>
   </main>
 
   <footer class="site-foot">
     <div class="wrap">
       <span>© 2026 AnYoo</span>
-      <span class="mono">made by one person + agents</span>
+      <a href="https://github.com/An-Yoo">github.com/An-Yoo</a>
     </div>
   </footer>
 </body>
